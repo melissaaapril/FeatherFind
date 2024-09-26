@@ -1,123 +1,70 @@
-# FeatherFind
-work in progress
-Feather Find app will be bird identifying webapp 
+# Getting Started with Create React App
 
-we performed model tunning for a CNN model using  to refine accuracy and saved the trained model using the `pickle` library that we will deploy to our website
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Table of Contents
-work in progress
-<!---
-- [Introduction](#introduction)
-- [Data](#data)
-- [Dependencies](#dependencies)
-- [Usage](#usage)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
---> 
+## Available Scripts
 
-## Introduction
-work in progress
+In the project directory, you can run:
 
-In this project, we focused on creating and optimizing a CNN model using X for hyperparameter tuning. The best model was then saved using the `pickle` library for future use. This approach helps in selecting the most effective model parameters and ensures reproducibility by preserving the trained model.
+### `npm start`
 
-We trained our model to read bird species images data to calssify bord species 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Data
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-The dataset used for this project was open source X and was preprocessed and prepared before modeling and is included in the repo. The target variable is a multilabel (this might be wrong lmao), indicating the species of a certain bird
+### `npm test`
 
-## Dependencies
-work in progress
-To run this project, you need the following Python libraries:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- pandas
-- numpy
-- scikit-learn
-- pickle
-- matplotlib (optional, for plotting)
-- seaborn (optional, for plotting)
-- os
-- sklearn.model_selection import train_test_split, GridSearchCV
-- sklearn.linear_model import LogisticRegression
-- sklearn.metrics import accuracy_score, confusion_matrix, precision_recall_curve
+### `npm run build`
 
-You can install these dependencies using pip:
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-EG:
-pip install pandas numpy scikit-learn matplotlib seaborn
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## below this header, i have not edited anything else lol i stole this from another project i did so we gotta edit
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Usage
+### `npm run eject`
 
-1. **Clone the Repository:**
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-2. **Load and Preprocess the Data:**
+## Learn More
 
-   The dataset should be loaded and split into training and testing sets. Any necessary preprocessing steps should be applied.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-3. **Perform Grid Search for Model Selection:**
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-   The `GridSearchCV` method from `scikit-learn` is used to perform an exhaustive search over specified parameter values for the c value in logistic regression.
+### Code Splitting
 
-  eg:
-   param_grid = {
-       'C': [0.1, 1, 10, 100],
-       'penalty': ['l1', 'l2'],
-       'solver': ['liblinear']
-   }
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-   grid_search = GridSearchCV(LogisticRegression(), param_grid, cv=c)
-   grid_search.fit(X_train, y_train)
+### Analyzing the Bundle Size
 
-   print("Best parameters found: ", grid_search.best_params_)
-   
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-4. **Train the Final Model:**
+### Making a Progressive Web App
 
-   Using the best parameters found, train the logistic regression model.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-   ```python
-   best_model = grid_search.best_estimator_
-   best_model.fit(X_train, y_train)
-   ```
+### Advanced Configuration
 
-5. **Save the Model:**
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-   The trained model is saved using the `pickle` library.
+### Deployment
 
-   ```python
-   import pickle
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-   with open('best_logistic_model.pkl', 'wb') as file:
-       pickle.dump(best_model, file)
-   ```
+### `npm run build` fails to minify
 
-6. **Load and Use the Saved Model:**
-
-   To load the saved model for future predictions:
-
-   ```python
-   with open('best_logistic_model.pkl', 'rb') as file:
-       loaded_model = pickle.load(file)
-
-   predictions = loaded_model.predict(X_test)
-   ```
-
-## Results
-
-The results of the grid search and the performance metrics of the final model should be included here. This can be in the form of accuracy, precision, recall, F1 score, etc.
-
-## Contributing
-
-If you wish to contribute to this project, please create a fork of the repository and submit a pull request with your proposed changes.
-
-## License
-
-This project guide is licensed under the UCLA License and is not available to the public - see the LICENSE file for details.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
