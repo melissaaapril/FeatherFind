@@ -1,0 +1,14 @@
+.DS_Store
+.ipynb_checkpoints
+# ignore image files in the Images_web directory
+website/Images_web/*.png
+website/Images_web/*.jpg
+website/Images_web/*.webp
+
+# ignore configuration and other files in the website directory
+website/firebaseConfig.js
+website/package.json
+website/search.html
+
+# ignore data folder
+Data/
