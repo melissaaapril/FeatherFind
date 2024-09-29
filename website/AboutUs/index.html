@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feather Find - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather&display=swap" rel="stylesheet">
+    <!--should i move this?? is it good pratcice to leave style here or should i separate??-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Merriweather', serif;
+            background-color: #f0f3ee;
+            color: #333;
+        }
+
+        nav{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2f4f4f;
+            padding: 1rem 2rem;
+        }
+        /* contains the name of company wing wise at top left*/
+        nav p{
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        /* controls size of logo*/
+        nav img{
+            width:90px;
+        }
+        /* the rest below help organzie the nav bar*/
+        nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li{
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        /* this was added in order to ensure users could see the selected option*/
+        nav ul li a:hover {
+            text-decoration: underline; /* adds an underline on hover yuh */
+        }
+        /* this is formatting for the image and text banner below nav bar*/
+        header {
+            background-image: url("/Website/Images_web/B2.2.png");
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            background-color: #2f4f4f;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            box-sizing: border-box;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #000000;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+        /* formatting for regular text below*/
+        p {
+            margin-right:auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        /* we can change the name but this formats for the imaegs on the about us page*/
+        .bird-illustrations {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .bird-illustrations img {
+            width: 200px;
+            margin: 0 1rem;
+        }
+
+        /*footer formatting that only contains the company name and copyright*/
+        footer {
+            background-color: #2f4f4f;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body></body>
+
+<nav>
+    <!-- change links to nav bar below and also has img link to company logo-->
+    <img src = "/Website/Images_web/logo_transparent.png" alt = "company logo">
+    <p>By WingWise</p>
+    <ul class = "nav_links">
+        <!-- add any new links or nav sections here-->
+        <li><a href = "#">Home</a> </li>
+        <li><a href = "#">Browse</a> </li>
+        <li><a href = "#">Login</a> </li>
+        <li><a href = "#">Register Us</a> </li>
+        <li><a href = "#">About Us</a> </li>
+    </ul>
+</nav>
+
+<header>
+    <!-- just the company name on the banner-->
+    <h1>Feather Find</h1>
+</header>
+
+<div class="main-content">
+    <h1>Our Mission & Story</h1>
+    <p>
+        FeatherFind is dedicated to making bird identification and classification easier for bird enthusiasts and researchers alike. 
+        With the help of AI-powered tools, we aim to provide an intuitive platform that fosters a connection with nature.
+    </p>
+
+    <div class="bird-illustrations">
+        <!-- Image sources: pexels.com. these are images in the about us-->
+        <img src="/Website/Images_web/AboutUs_Image1.jpg" alt="Bird Illustration 1">
+        <img src="/Website/Images_web/AboutUs_image2.jpg" alt="Bird Illustration 2">
+        <img src="/Website/Images_web/AboutUs_image3.jpg" alt="Bird Illustration 3">
+    </div>
+
+    <p>
+        <!-- the rest of the text that was broken off from images goes here-->
+        We believe that by enhancing bird identification, we can help raise awareness for bird conservation and the beauty of our natural world.
+    </p>
+</div>
+
+<footer>
+    <!-- we can add icons for github later or leave it this way-->
+    <p>&copy; 2024 Feather Find - All rights reserved</p>
+</footer>
+
+</body>
+</html>
