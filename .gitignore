@@ -12,3 +12,5 @@ website/search.html
 
 # ignore data folder
 Data/
+
+Scripts/CNN/Bird_class_model.h5
