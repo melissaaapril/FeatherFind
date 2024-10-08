@@ -1,16 +1,31 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
 .DS_Store
-.ipynb_checkpoints
-# ignore image files in the Images_web directory
-website/Images_web/*.png
-website/Images_web/*.jpg
-website/Images_web/*.webp
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+Thumbs.db
 
-# ignore configuration and other files in the website directory
-website/firebaseConfig.js
-website/package.json
-website/search.html
 
-# ignore data folder
-Data/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/Data
 
 Scripts/CNN/Bird_class_model.h5
+
+Website/Images_web/
