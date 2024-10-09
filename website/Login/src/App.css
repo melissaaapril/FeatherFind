@@ -1,0 +1,30 @@
+.card {
+  width: 350px;
+  height: 400px;
+  padding: 20px;
+  background-color: rgb(60, 76 ,72);
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+
+button {
+  margin-top: 15px;
+  background-color: rgb(155, 172, 147);
+  padding: 15px 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: x-large;
+  width: 250px;
+  font-weight: 600; 
+  font-style: normal; 
+  color: rgb(30, 55, 6); 
+  font-kerning: none; 
+  text-decoration: none;
+}

@@ -1,0 +1,44 @@
+ nav{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2f4f4f;
+            padding: 1rem 2rem;
+        }
+        /* contains the name of company wing wise at top left*/
+        nav p{
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        /* controls size of logo*/
+        nav img{
+            width:90px;
+        }
+        /* the rest below help organzie the nav bar*/
+        nav ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li{
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+        }
+        /* this was added in order to ensure users could see the selected option*/
+        nav ul li a:hover {
+            text-decoration: underline; /* adds an underline on hover yuh */
+        }
+        p {
+            margin-right:auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
