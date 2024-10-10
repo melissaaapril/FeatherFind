@@ -1,0 +1,62 @@
+import React, { useState } from 'react';
+import './App.css';
+import { useDropzone } from 'react-dropzone';
+import Navbar from './Components/Navbar.jsx';
+import './Components/Navbar.css';
+
+
+//lets ste up the main drag and drop function
+
+function DragDropImageUploader () {
+    const [uploadedFile, setUploadedFile] = useState(null);
+
+    //we will callback when a file is dropped*/}
+    // so it is triggered when file dropped*/}
+    const onDrop = (acceptedFiles) => { 
+        // error handling to only take the first file*/}
+        const file = acceptedFiles[0];
+        //read in file*/}
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setUploadedFile(reader.result); //save the image preview*/}
+        };
+        reader.readAsDataURL(file); // convert image to base64
+    };
+    //*using drop zone from react*/}
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop,
+        //only accept images
+        accept: 'image/*',
+        multiple: false,
+});
+return(
+  <> 
+    <Navbar/>
+    {/*creates the card object*/}
+    <div className = 'card'>
+      <div className = 'top'>
+        {/*text that is inside on the top of the box */}
+        <p>Drag or Drop Files</p>
+        </div>
+        <div {...getRootProps()} className="drag-area">
+          <input {...getInputProps()} />
+            {/*text that is inside the actual box */}
+            <p>drag & drop image OR click to select files</p>
+        </div>
+        {uploadedFile && (
+          <div className="container">
+            <img src={uploadedFile} alt="Uploaded" style={{ width: '200px' }} />
+          </div>
+        )}
+        <div>
+        <button type = 'button'>Start</button>
+        </div>
+        <div>
+        <button type = 'button'>Delete</button>
+        </div>
+      </div>
+     </>
+  );
+}
+
+export default DragDropImageUploader;
