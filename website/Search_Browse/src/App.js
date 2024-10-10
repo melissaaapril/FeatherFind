@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
-import './App.css';
+import Navbar from './Components/Navbar'; //Importing Nav 
+import Footer from './Components/Footer'; //Importing Footer
+import './App.css'; //Importing CSS file
 
 function App() {
+  //Manages the search input from user
   const [searchTerm, setSearchTerm] = useState('');
 
+  //Temp Database, We can replace with Firebase later on
   const birds = [
     { id: 1, name: 'Cardinal' },
     { id: 2, name: 'Blue Jay' },
@@ -15,6 +17,7 @@ function App() {
     { id: 5, name: 'Sparrow' }
   ];
 
+  //Filters birds based on user input entered earlier
   const filteredBirds = birds.filter(bird =>
     bird.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -64,8 +67,12 @@ function App() {
   );
 }
 
+
+//Calls Specific details about a selected bird. *Should probably make this a component for easier use?*
 function BirdDetail({ birds }) {
+  //Grabs bird ID and adds to URL path
   const birdId = window.location.pathname.split('/').pop();
+  //Finds object to match the ID
   const bird = birds.find(b => b.id === Number(birdId));
 
   return (
