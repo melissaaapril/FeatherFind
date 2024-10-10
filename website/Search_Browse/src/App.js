@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Navbar from './Components/Navbar'; //Importing Nav 
-import Footer from './Components/Footer'; //Importing Footer
-import './App.css'; //Importing CSS file
+import Navbar from './Components/Navbar'; // Import Navbar component
+import Footer from './Components/Footer'; // Import Footer component
+import BirdDetail from './Components/BirdDetail'; // Import the new BirdDetail component
+import './App.css'; // Import the main CSS file
 
 function App() {
-  //Manages the search input from user
+  //useState hook to manage search input
   const [searchTerm, setSearchTerm] = useState('');
 
-  //Temp Database, We can replace with Firebase later on
+  //Temp array, we can replace with firebase later
   const birds = [
     { id: 1, name: 'Cardinal' },
     { id: 2, name: 'Blue Jay' },
@@ -17,9 +18,9 @@ function App() {
     { id: 5, name: 'Sparrow' }
   ];
 
-  //Filters birds based on user input entered earlier
+  //
   const filteredBirds = birds.filter(bird =>
-    bird.name.toLowerCase().includes(searchTerm.toLowerCase())
+    bird.name.toLowerCase().includes(searchTerm.toLowerCase()) //Converts to lowercase for case sentisive search
   );
 
   return (
@@ -58,37 +59,13 @@ function App() {
                 </>
               }
             />
+            {/* Use the BirdDetail component in the route */}
             <Route path="/bird/:id" element={<BirdDetail birds={birds} />} />
           </Routes>
         </div>
         <Footer /> {/* Footer stays at the bottom */}
       </div>
     </Router>
-  );
-}
-
-
-//Calls Specific details about a selected bird. *Should probably make this a component for easier use?*
-function BirdDetail({ birds }) {
-  //Grabs bird ID and adds to URL path
-  const birdId = window.location.pathname.split('/').pop();
-  //Finds object to match the ID
-  const bird = birds.find(b => b.id === Number(birdId));
-
-  return (
-    <div className="bird-detail-container">
-      {bird ? (
-        <div className="bird-detail-content">
-          <h2>{bird.name}</h2>
-          <p>Details about the {bird.name}.</p>
-          <Link to="/" className="back-link">
-            <button>Go Back to Browse</button>
-          </Link>
-        </div>
-      ) : (
-        <div>Bird not found.</div>
-      )}
-    </div>
   );
 }
 
