@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-import Navbar from './Components/Navbar.jsx';  // Assuming Navbar exists
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';  // Importing Footer component
 
 function App() {
-  // State for search term
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Example data for birds (replace this with actual data if needed)
   const birds = [
     { id: 1, name: 'Cardinal' },
     { id: 2, name: 'Blue Jay' },
@@ -16,7 +15,6 @@ function App() {
     { id: 5, name: 'Sparrow' }
   ];
 
-  // Filter birds based on the search term
   const filteredBirds = birds.filter(bird =>
     bird.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -24,44 +22,37 @@ function App() {
   return (
     <Router>
       <Navbar />
+      
+      <div className="main-content">
+        <div className="search-bar-container">
+          <input
+            type="text"
+            placeholder="Search for a bird..."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            className="search-input"
+          />
+        </div>
+
+        <div className="grid-container">
+          {filteredBirds.length > 0 ? (
+            filteredBirds.map(bird => (
+              <div key={bird.id} className="grid-item">
+                <Link to={`/bird/${bird.id}`} className="bird-link">
+                  {bird.name}
+                </Link>
+              </div>
+            ))
+          ) : (
+            <div>No birds found</div>
+          )}
+        </div>
+      </div>
+
+      {/* Footer placed here to ensure it's visible at the bottom */}
+      <Footer />
 
       <Routes>
-        {/* Main Page (Search and Browse) */}
-        <Route
-          path="/"
-          element={
-            <div>
-              {/* Search and Browse Section */}
-              <div className="search-bar-container">
-                <input
-                  type="text"
-                  placeholder="Search for a bird..."
-                  value={searchTerm}
-                  onChange={e => setSearchTerm(e.target.value)}
-                  className="search-input"
-                />
-              </div>
-
-              {/* Display Filtered Birds in a Grid */}
-              <div className="grid-container">
-                {filteredBirds.length > 0 ? (
-                  filteredBirds.map(bird => (
-                    <div key={bird.id} className="grid-item">
-                      {/* Each bird name is a link to a new page */}
-                      <Link to={`/bird/${bird.id}`} className="bird-link">
-                        {bird.name}
-                      </Link>
-                    </div>
-                  ))
-                ) : (
-                  <div>No birds found</div>
-                )}
-              </div>
-            </div>
-          }
-        />
-
-        {/* Bird Detail Page */}
         <Route path="/bird/:id" element={<BirdDetail birds={birds} />} />
       </Routes>
     </Router>

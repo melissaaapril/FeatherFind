@@ -1,9 +1,28 @@
 /* General styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-image: url('http://localhost:3000/Background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+  flex-grow: 1;
 }
 
 /* Search bar styles */
@@ -25,6 +44,8 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   padding: 20px;
+  width: 100%; /* Ensure grid spans full width without overflow */
+  box-sizing: border-box;
 }
 
 .grid-item {
@@ -59,4 +80,16 @@ button {
 
 button:hover {
   background-color: #218838;
+}
+
+/* Footer styles */
+footer {
+  background-color: #2f4f4f;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  box-sizing: border-box;
 }
