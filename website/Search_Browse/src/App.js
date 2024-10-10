@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import './App.css';
 import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';  // Importing Footer component
+import Footer from './Components/Footer';
+import './App.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,40 +21,45 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
-      
-      <div className="main-content">
-        <div className="search-bar-container">
-          <input
-            type="text"
-            placeholder="Search for a bird..."
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            className="search-input"
-          />
-        </div>
+      <div className="page-container">
+        <Navbar />
+        <div className="content-wrap">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <div className="search-bar-container">
+                    <input
+                      type="text"
+                      placeholder="Search for a bird..."
+                      value={searchTerm}
+                      onChange={e => setSearchTerm(e.target.value)}
+                      className="search-input"
+                    />
+                  </div>
 
-        <div className="grid-container">
-          {filteredBirds.length > 0 ? (
-            filteredBirds.map(bird => (
-              <div key={bird.id} className="grid-item">
-                <Link to={`/bird/${bird.id}`} className="bird-link">
-                  {bird.name}
-                </Link>
-              </div>
-            ))
-          ) : (
-            <div>No birds found</div>
-          )}
+                  <div className="grid-container">
+                    {filteredBirds.length > 0 ? (
+                      filteredBirds.map(bird => (
+                        <div key={bird.id} className="grid-item">
+                          <Link to={`/bird/${bird.id}`} className="bird-link">
+                            {bird.name}
+                          </Link>
+                        </div>
+                      ))
+                    ) : (
+                      <div>No birds found</div>
+                    )}
+                  </div>
+                </>
+              }
+            />
+            <Route path="/bird/:id" element={<BirdDetail birds={birds} />} />
+          </Routes>
         </div>
+        <Footer /> {/* Footer stays at the bottom */}
       </div>
-
-      {/* Footer placed here to ensure it's visible at the bottom */}
-      <Footer />
-
-      <Routes>
-        <Route path="/bird/:id" element={<BirdDetail birds={birds} />} />
-      </Routes>
     </Router>
   );
 }
@@ -64,9 +69,9 @@ function BirdDetail({ birds }) {
   const bird = birds.find(b => b.id === Number(birdId));
 
   return (
-    <div>
+    <div className="bird-detail-container">
       {bird ? (
-        <div>
+        <div className="bird-detail-content">
           <h2>{bird.name}</h2>
           <p>Details about the {bird.name}.</p>
           <Link to="/" className="back-link">

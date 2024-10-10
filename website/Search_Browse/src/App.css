@@ -2,27 +2,28 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  overflow-x: hidden; /* Prevents horizontal scrolling */
+  height: 100%; /* Ensure the entire page takes full height */
   font-family: Arial, sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 body {
-  background-image: url('http://localhost:3000/Background.webp');
+  background-image: url('http://localhost:3000/Background.webp'); /* Keep the background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  background-attachment: fixed; /* Ensure it stays fixed on scroll */
 }
 
-#root {
+.page-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
-  flex-grow: 1;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+.content-wrap {
+  flex-grow: 1; /* Takes up remaining space and pushes footer down */
+  padding: 20px;
 }
 
 /* Search bar styles */
@@ -44,7 +45,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;
   padding: 20px;
-  width: 100%; /* Ensure grid spans full width without overflow */
   box-sizing: border-box;
 }
 
@@ -67,19 +67,20 @@ body {
   color: #0056b3;
 }
 
-/* Button Hover Styles */
-button {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* Bird detail content */
+.bird-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
-button:hover {
-  background-color: #218838;
+.bird-detail-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer styles */
@@ -88,8 +89,6 @@ footer {
   color: white;
   padding: 1rem;
   text-align: center;
-  width: 100%;
-  margin-top: auto;
-  position: relative;
-  box-sizing: border-box;
+  width: 100%; /* Ensure footer spans full width */
+  margin-top: auto; /* Pushes footer to the bottom */
 }
